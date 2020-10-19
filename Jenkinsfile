@@ -23,7 +23,7 @@ pipeline {
     }
 
     stage('Execute JJB') {
-      when { beforeAgent true; anyOf { branch 'master'; } }
+      when { beforeAgent true; anyOf { branch 'master'; branch 'main'; } }
       agent {
         kubernetes {
           yaml pipelineGetAgent(toolchain_version: "latest")
