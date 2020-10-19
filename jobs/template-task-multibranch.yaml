@@ -1,0 +1,23 @@
+- job-template:
+    # Variable Defaults #
+    jenkinsfile-path: 'Jenkinsfile.tasks'
+    job-name: 'default-task-template'
+    builds-to-keep: 30
+    build-days-to-keep: -1
+    github-credentials-id: 'jenkins-diginex'
+    
+    # Job Configuration #
+    id: 'template-task-multibranch'
+    name: '{job-name}'
+    project-type: multibranch
+    prune-dead-branches: true
+    number-to-keep: '{builds-to-keep}'
+    days-to-keep: '{build-days-to-keep}'
+    script-path: '{jenkinsfile-path}'
+    scm:
+      - github:
+          repo: '{repo}'
+          repo-owner: 'diginex-exchange'
+          credentials-id: '{github-credentials-id}'
+          branch-discovery: 'all'
+          head-filter-regex: "task/.*"       

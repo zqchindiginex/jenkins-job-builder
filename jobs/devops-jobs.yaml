@@ -1,0 +1,6 @@
+- project:
+    name: DevOps
+    jobs:
+        - 'multibranch-template':
+            job-name: DevOps Cloud Custodian
+            repo: cloud-custodian
