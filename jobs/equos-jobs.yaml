@@ -1,0 +1,12 @@
+- project:
+    name: Equos
+    jobs:
+        - 'multibranch-template':
+            job-name: 'Equos App UI' 
+            repo: 'equos-app-ui'
+        - 'multibranch-template':
+            job-name: 'Equos Trading UI' 
+            repo: 'equos-trading-ui'
+        - 'multibranch-template':
+            job-name: 'Equos Site UI' 
+            repo: 'equos-site-ui'

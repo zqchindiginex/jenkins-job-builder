@@ -1,0 +1,6 @@
+- project:
+    name: dataops
+    jobs:
+        - 'multibranch-template':
+            job-name: dataops-lambda
+            repo: dataops-lambda

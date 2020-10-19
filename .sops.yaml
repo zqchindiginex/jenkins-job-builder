@@ -1,0 +1,3 @@
+creation_rules:
+        - path_regex: jenkins_job\.ini
+          kms: 'arn:aws:kms:ap-southeast-1:929981421241:alias/diginex/terraform-main'

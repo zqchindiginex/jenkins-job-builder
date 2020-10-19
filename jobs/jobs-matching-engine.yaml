@@ -1,0 +1,24 @@
+- job:
+    name: MatchingEngine
+    project-type: folder
+
+- project:
+    name: MatchingEngine-Jobs
+    jobs:
+        - 'template-task-multibranch':
+            job-name: "MatchingEngine/01 Tasks"
+            repo: matching-engine    
+        - 'template-pr-multibranch':
+            job-name: "MatchingEngine/02 Pull Requests"
+            repo: matching-engine            
+        - 'template-develop-multibranch':
+            job-name: "MatchingEngine/03 Develop"
+            repo: matching-engine
+        - 'template-releasePackage-multibranch':
+            job-name: "MatchingEngine/04 Release Packages"
+            repo: matching-engine
+        - 'template-releaseDeploy-multibranch':
+            job-name: "MatchingEngine/05 Release Deploy"
+            repo: matching-engine              
+
+
