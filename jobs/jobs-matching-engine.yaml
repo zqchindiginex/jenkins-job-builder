@@ -5,20 +5,29 @@
 - project:
     name: MatchingEngine-Jobs
     jobs:
-        - 'template-task-multibranch':
+        - 'multibranch-template':
             job-name: "MatchingEngine/01 Tasks"
-            repo: matching-engine    
-        - 'template-pr-multibranch':
+            repo: matching-engine
+            filter-by-name-regex: 'task/.*'
+            jenkinsfile-path: 'Jenkinsfile.task'
+        - 'multibranch-template':
             job-name: "MatchingEngine/02 Pull Requests"
-            repo: matching-engine            
-        - 'template-develop-multibranch':
+            repo: matching-engine
+            discover-branches: 'only-pr'
+            builds-to-keep: 3
+            jenkinsfile-path: 'Jenkinsfile.task'
+        - 'multibranch-template':
             job-name: "MatchingEngine/03 Develop"
             repo: matching-engine
-        - 'template-releasePackage-multibranch':
+            jenkinsfile-path: 'Jenkinsfile.develop'
+            filter-by-name-regex: 'develop'
+        - 'multibranch-template':
             job-name: "MatchingEngine/04 Release Packages"
             repo: matching-engine
-        - 'template-releaseDeploy-multibranch':
+            jenkinsfile-path: 'Jenkinsfile.release'
+            filter-by-name-regex: 'release'
+        - 'multibranch-template':
             job-name: "MatchingEngine/05 Release Deploy"
-            repo: matching-engine              
-
-
+            repo: matching-engine
+            jenkinsfile-path: 'Jenkinsfile.deploy'
+            filter-by-name-regex: 'master'
