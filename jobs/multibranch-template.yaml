@@ -1,13 +1,14 @@
 - job-template:
     # Variable Defaults #
-    jenkinsfile-path: 'Jenkinsfile.deploy'
-    job-name: 'default-releaseDeploy-template'
+    jenkinsfile-path: 'Jenkinsfile'
+    job-name: 'default-multibranch-template'
     builds-to-keep: 30
     build-days-to-keep: -1
     github-credentials-id: 'jenkins-diginex'
-
+    filter-by-name-regex: ''
+    discover-branches: 'all'
     # Job Configuration #
-    id: 'template-releaseDeploy-multibranch'
+    id: 'multibranch-template'
     name: '{job-name}'
     project-type: multibranch
     prune-dead-branches: true
@@ -19,5 +20,8 @@
           repo: '{repo}'
           repo-owner: 'diginex-exchange'
           credentials-id: '{github-credentials-id}'
-          branch-discovery: 'all'
-          head-filter-regex: 'master'
+          branch-discovery: '{discover-branches}'
+          discover-pr-forks-strategy: 'merge-current'
+          discover-pr-forks-trust: 'everyone'
+          discover-pr-origin: 'merge-current'
+          head-filter-regex: '{filter-by-name-regex}'
